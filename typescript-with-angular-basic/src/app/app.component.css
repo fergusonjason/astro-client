@@ -1,0 +1,37 @@
+
+#header {
+    height: 10%;
+    width: 100%;
+    text-align: center
+}
+
+#footer {
+    height: 10%;
+    width: 100%;
+}
+
+#navBar {
+    width: 400px;
+    height: 80%;
+    float: left;
+}
+
+#contentArea {
+    height: 80%;
+    float: left;
+}
+
+.body {
+    position: relative
+}
+.bodyLeft {
+    width: 200px;
+    height: 80%;
+    float: left;
+    top: 0;
+    left: 0
+}
+
+.bodyRight {
+    margin-left: 200px;
+}

@@ -1,0 +1,33 @@
+<h3>Search Henry Draper (HD) Catalog</h3>
+
+<div>
+    <input [(ngModel)]="id" /> <button (click)="searchCatalog()">Search</button>
+    <button (click)="clearInput()">Clear</button>
+</div>
+<div>
+    <mat-table class=""  [dataSource]="displayedItems">
+        <ng-container matColumnDef="">
+            <div *matHeaderCellDef>HD</div>
+            <div *matCellDef="let item">{{item.HD}}</div>
+        </ng-container>
+
+    </mat-table>
+    <table *ngIf="displayedItems.length > 0">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Magnitude (Photographic)</td>
+                <td>Intensity</td>
+                <td>Spectral Type</td>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let item of displayedItems">
+                <td>{{item.HD}}</td>
+                <td>{{item.Ptg}}</td>
+                <td>{{item.Int}}</td>
+                <td>{{item.SpectralType}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
