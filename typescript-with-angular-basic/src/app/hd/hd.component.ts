@@ -1,32 +1,48 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, OnChanges, SimpleChanges, SimpleChange } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 import { HD } from "./hd";
+import { IQuery } from "../models/Query";
 import { PagedDataResponse } from "../models/PagedDataResponse";
 
 import { AstroService } from "../astro.service";
 
 @Component({
-  selector: 'app-hd',
-  templateUrl: './hd.component.html',
-  styleUrls: ['./hd.component.css']
+  selector: "app-hd",
+  templateUrl: "./hd.component.html",
+  styleUrls: ["./hd.component.css"]
 })
 export class HdComponent implements OnInit, AfterViewInit {
 
-  @Input()
-  id: number;
+  // @Input()
+  // _queryField: string = "HD";
 
-  displayedItems: HD[];
+  queryForm: FormGroup;
 
-  start: number = 0;
-  stop: number = 20;
+  queryObj: IQuery = {offset: 0, limit: 20};
 
-  constructor(private astroService: AstroService) { }
+  displayedItems: HD[] = [];
+
+  // start: number = 0;
+  // stop: number = 20;
+
+  private formGroupTemplate: object = {
+    queryField: "ID",
+    queryOp: "$eq",
+    queryParam: "",
+    sortField: "ID",
+    sortDir: 1,
+    offset: 0,
+    limit: 20
+  };
+
+  constructor(private astroService: AstroService, private formBuilder: FormBuilder) {
+    this.queryForm = this.formBuilder.group(this.formGroupTemplate);
+  }
 
   ngOnInit() {
-    // displayedItems needs to be set to the first default "page" of results upon display
-    // this.astroService.getPage<HD>("hd", 0, 20).subscribe((data) => {
-    //   this.displayedItems = data.result;
-    // });
+
+    this.queryObj.filter = {};
   }
 
   ngAfterViewInit() {
@@ -37,12 +53,25 @@ export class HdComponent implements OnInit, AfterViewInit {
 
   searchCatalog() {
     console.log("Entered searchCatalog()");
-    this.astroService.get<HD>("hd", this.id).subscribe((data) => {
-      this.displayedItems = [data];
+
+    const urlString: string = this.astroService.transformFormGroupToUrlQueryString(this.queryForm);
+
+    this.astroService.get2<HD>("hd", urlString).subscribe((data) => {
+      this.displayedItems = data.result;
     });
   }
 
   clearInput() {
     this.displayedItems = [];
+  }
+
+  resetInput() {
+    this.queryForm = this.formBuilder.group(this.formGroupTemplate);
+
+    const urlString: string = this.astroService.transformFormGroupToUrlQueryString(this.queryForm);
+
+    this.astroService.get2<HD>("hd", urlString).subscribe((data) => {
+      this.displayedItems = data.result;
+    });
   }
 }

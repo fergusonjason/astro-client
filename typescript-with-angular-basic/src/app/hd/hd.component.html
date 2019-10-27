@@ -1,33 +1,57 @@
-<h3>Search Henry Draper (HD) Catalog</h3>
+<div style="width: 100%; border-width: 1; border-style: solid;">
+    <h3 style="padding-left: 15px">Search Henry Draper (HD) Catalog</h3>
 
-<div>
-    <input [(ngModel)]="id" /> <button (click)="searchCatalog()">Search</button>
-    <button (click)="clearInput()">Clear</button>
-</div>
-<div>
-    <mat-table class=""  [dataSource]="displayedItems">
-        <ng-container matColumnDef="">
-            <div *matHeaderCellDef>HD</div>
-            <div *matCellDef="let item">{{item.HD}}</div>
-        </ng-container>
+    <div [formGroup]="queryForm">
+        <div class="controls">
+            <select id = "queryField" formControlName="queryField">
+                <option value="ID">Name</option>
+                <option value="DM">DM</option>
+            </select>
+            <div class="divider"></div>
+            <select id="queryOp" formControlName="queryOp">
+                <option value="$eq">=</option>
+                <option value="$lt">&lt;</option>
+                <option value="$lte">&lt; =</option>
+                <option value="$gt">&gt;</option>
+                <option value="$gte">&gt; =</option>
+            </select>
+            <div class="divider"></div>
+            <input type="text" formControlName="queryParam" id="queryParam" />
+            <div class="divider"></div>
 
-    </mat-table>
-    <table *ngIf="displayedItems.length > 0">
-        <thead>
-            <tr>
-                <td>Name</td>
-                <td>Magnitude (Photographic)</td>
-                <td>Intensity</td>
-                <td>Spectral Type</td>
-            </tr>
-        </thead>
-        <tbody >
-            <tr *ngFor="let item of displayedItems">
-                <td>{{item.HD}}</td>
-                <td>{{item.Ptg}}</td>
-                <td>{{item.Int}}</td>
-                <td>{{item.SpectralType}}</td>
-            </tr>
-        </tbody>
-    </table>
+            <div class="divider"></div>
+            <button (click)="searchCatalog()">Search</button>
+            <div class="divider"></div>
+            <button (click)="resetInput()">Reset</button>
+        </div>
+    </div>
+
+    <div class="grid">
+        <table *ngIf="displayedItems.length > 0">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Magnitude (Photographic)</td>
+                    <td>Intensity</td>
+                    <td>Spectral Type</td>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let item of displayedItems">
+                    <td>{{item.ID}}</td>
+                    <td>{{item.Ptm}}</td>
+                    <td>{{item.intensity}}</td>
+                    <td>{{item.SpectralType}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="controls" [formGroup]="queryForm" style="padding-bottom: 15px">
+        Total Items to Display:
+        <select id="limit" formControlName="limit">
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+        </select>
+    </div>
 </div>
