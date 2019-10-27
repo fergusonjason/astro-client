@@ -14,17 +14,11 @@ import { AstroService } from "../astro.service";
 })
 export class HdComponent implements OnInit, AfterViewInit {
 
-  // @Input()
-  // _queryField: string = "HD";
-
   queryForm: FormGroup;
 
   queryObj: IQuery = {offset: 0, limit: 20};
 
   displayedItems: HD[] = [];
-
-  // start: number = 0;
-  // stop: number = 20;
 
   private formGroupTemplate: object = {
     queryField: "ID",
