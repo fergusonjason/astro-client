@@ -1,18 +1,17 @@
 <div id="header">
-    <h1>Astronomical Catalog Client (Angular)</h1>
-</div>
 
-<div id="body">
-    <div id="navBar">
-        <ul>
-            <li routerLinkActive="active"><a routerLink="/hd">HD Catalog</a></li>
-            <li routerLinkActive="active"><a routerLink="/yale">Yale Bright Star Catalog</a></li>
-        </ul>
-    </div>
-    <div id="contentArea">
-        <router-outlet></router-outlet>
+</div>
+<div id="container">
+    <h1 class="header">Astronomical Catalog Client (Angular)</h1>
+    <div class="flex-grid">
+        <div class="navBar">
+            <ul>
+                <li routerLinkActive="active"><a routerLink="/hd">HD Catalog</a></li>
+                <li routerLinkActive="active"><a routerLink="/yale">Yale Bright Star Catalog</a></li>
+            </ul>
+        </div>
+        <div class="contentArea">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>
-<!-- <div id="footer">
-    <p>Astronomical Catalog written by Jason Ferguson. Subject to MIT license.</p>
-</div> -->
