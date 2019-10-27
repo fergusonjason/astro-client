@@ -1,37 +1,32 @@
 
-#header {
-    height: 10%;
-    width: 100%;
-    text-align: center
+.container {
+    max-width: 100;
+    margin: auto;
+    font-family: sans-serif;
+    line-height: 1.5;
 }
 
-#footer {
-    height: 10%;
-    width: 100%;
+.flex-grid {
+    display: flex;
 }
 
-#navBar {
-    width: 400px;
-    height: 80%;
-    float: left;
+.header {
+    flex: 6;
+    text-align: center;
 }
 
-#contentArea {
-    height: 80%;
-    float: left;
+.footer {
+    flex: 6
 }
 
-.body {
-    position: relative
-}
-.bodyLeft {
-    width: 200px;
-    height: 80%;
-    float: left;
-    top: 0;
-    left: 0
+.navBar {
+    flex: 1;
 }
 
-.bodyRight {
-    margin-left: 200px;
+.contentArea {
+    flex: 5;
+    margin-left: 10px;
+    margin-right: 25px;
 }
+
+
