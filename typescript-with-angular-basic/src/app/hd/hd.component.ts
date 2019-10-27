@@ -10,7 +10,7 @@ import { AstroService } from "../astro.service";
 @Component({
   selector: "app-hd",
   templateUrl: "./hd.component.html",
-  styleUrls: ["./hd.component.css"]
+  styleUrls: ["./hd.component.css","../../assets/grid.css"]
 })
 export class HdComponent implements OnInit, AfterViewInit {
 
