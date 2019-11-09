@@ -1,0 +1,30 @@
+  <div style="display: flex; flex-direction: column;">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="sidenavOpened=!sidenavOpened">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span class="mat-title">Astronomical Catalog (Angular With Material)</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav [(opened)]="sidenavOpened" #sidenav (click)="sidenav.toggle()">
+
+          <ul>
+            <li routerLinkActive="active"><a routerLink="/hd">HD Catalog</a></li>
+            <li routerLinkActive="active"><a routerLink="/yale">Yale Bright Star Catalog</a></li>
+          </ul>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div style="height: 88vh;">
+          <router-outlet></router-outlet>
+      </div>
+
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  This was written by Jason
+  </div>
