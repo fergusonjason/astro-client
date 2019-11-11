@@ -10,22 +10,18 @@
   </mat-toolbar>
   <mat-sidenav-container>
     <mat-sidenav [(opened)]="sidenavOpened" #sidenav (click)="sidenav.toggle()">
-
-          <ul>
-            <li routerLinkActive="active"><a routerLink="/hd">HD Catalog</a></li>
-            <li routerLinkActive="active"><a routerLink="/yale">Yale Bright Star Catalog</a></li>
-            <li routerLinkActive="active"><a routerLink="/ngc2000">NGC2000 Catalog</a></li>
-            <li routerLinkActive="active"><a routerLink="/gliese">Gliese Catalog</a></li>
-          </ul>
-
+      <mat-nav-list>
+        <mat-list-item routerLink="/hd">HD Catalog</mat-list-item>
+        <mat-list-item routerLink="/yale">Yale Bright Star Catalog</mat-list-item>
+        <mat-list-item routerLink="/ngc2000">NGC2000 Catalog</mat-list-item>
+        <mat-list-item routerLink="/gliese">Gliese Catalog</mat-list-item>
+      </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
       <div style="height: 88vh;">
           <router-outlet></router-outlet>
       </div>
-
-
     </mat-sidenav-content>
   </mat-sidenav-container>
   This was written by Jason
