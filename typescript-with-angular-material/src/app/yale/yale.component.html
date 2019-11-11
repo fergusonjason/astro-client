@@ -1,1 +1,29 @@
-<p>yale works!</p>
+<mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="ID">
+        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.ID }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="VisualMagnitude">
+        <mat-header-cell *matHeaderCellDef>Visual Magnitude</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.VisualMagnitude }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="BV">
+        <mat-header-cell *matHeaderCellDef>BV</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.BV }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="SpectralType">
+        <mat-header-cell *matHeaderCellDef>Spectral Type</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.SpectralType}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="NoteFlag">
+        <mat-header-cell *matHeaderCellDef>Note Flag</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.NoteFlag}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayColumns"></mat-row>
+</mat-table>
