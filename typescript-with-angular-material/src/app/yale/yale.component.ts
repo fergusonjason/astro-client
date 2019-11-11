@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { AstroService } from "../astro.service";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { IQuery } from "../model/Query";
-import { Yale } from './yale';
-import { MatTableDataSource } from '@angular/material/table';
+import { Yale } from "./yale";
+import { MatTableDataSource } from "@angular/material/table";
 
 @Component({
   selector: "app-yale",
