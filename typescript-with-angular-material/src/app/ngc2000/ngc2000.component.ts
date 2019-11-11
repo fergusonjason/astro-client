@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { AstroService } from "../astro.service";
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { IQuery } from '../model/Query';
-import { Ngc2000 } from './ngc2000';
-import { MatTableDataSource } from '@angular/material/table';
+import { FormGroup, FormBuilder } from "@angular/forms";
+import { IQuery } from "../model/Query";
+import { Ngc2000 } from "./ngc2000";
+import { MatTableDataSource } from "@angular/material/table";
 
 @Component({
   selector: "app-ngc2000",
