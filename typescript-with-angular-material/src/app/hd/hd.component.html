@@ -1,1 +1,52 @@
-<p>hd works!</p>
+<mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="ID">
+        <mat-header-cell *matHeaderCellDef>
+            ID
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            {{ item.ID }}
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Ptm">
+        <mat-header-cell *matHeaderCellDef>
+            Magnitude (Photovisual)
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            {{ item.Ptm }}
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Ptg">
+        <mat-header-cell *matHeaderCellDef>
+            Magnitude (Photographic)
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            {{ item.Ptg }}
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Intensity">
+        <mat-header-cell *matHeaderCellDef>
+            Intensity
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            {{ item.intensity }}
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="SpectralType">
+        <mat-header-cell *matHeaderCellDef>
+            Spectral Type
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            {{ item.SpectralType }}
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Rem">
+        <mat-header-cell *matHeaderCellDef>
+            Remarks
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            {{ item.Rem }}
+        </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayColumns"></mat-row>
+</mat-table>
