@@ -1,0 +1,36 @@
+<mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.Name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ProperMotion">
+        <mat-header-cell *matHeaderCellDef>Proper Motion</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.pm }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ProperMotionAngle">
+        <mat-header-cell *matHeaderCellDef>ProperMotionAngle</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.pmPA }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="RadialVelocity">
+        <mat-header-cell *matHeaderCellDef>RadialVelocity</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.RadialVelocity }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="VisualMagnitude">
+        <mat-header-cell *matHeaderCellDef>VisualMagnitude</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.VisualMagnitude }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="BV">
+        <mat-header-cell *matHeaderCellDef>BV</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.BV }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Parallax">
+        <mat-header-cell *matHeaderCellDef>Parallax</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.plx }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="SpectralType">
+        <mat-header-cell *matHeaderCellDef>Spectral Type</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.SpectralType }}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+    <mat-row *matRowDef="let row:columns:displayColumns"></mat-row>
+</mat-table>

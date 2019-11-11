@@ -12,13 +12,15 @@ import { YaleComponent } from "./yale/yale.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { Ngc2000Component } from "./ngc2000/ngc2000.component";
+import { GlieseComponent } from "./gliese/gliese.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HdComponent,
     YaleComponent,
-    Ngc2000Component
+    Ngc2000Component,
+    GlieseComponent
   ],
   imports: [
     BrowserModule,
