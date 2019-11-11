@@ -16,12 +16,14 @@ import { MaterialModule } from "./material.module";
 import { YaleComponent } from "./yale/yale.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { Ngc2000Component } from './ngc2000/ngc2000.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HdComponent,
-    YaleComponent
+    YaleComponent,
+    Ngc2000Component
   ],
   imports: [
     BrowserModule,
