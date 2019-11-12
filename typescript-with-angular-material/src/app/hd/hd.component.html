@@ -1,7 +1,23 @@
 <div class="mat-title">Search Henry Draper (HD) Catalog</div>
-<div [formGroup]="queryForm">
-
-</div>
+<!-- <div [formGroup]="queryForm"> -->
+    <div class="controls">
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let field of queryableFields" [value]="field">{{ field }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let op of allowedOperations" [value]="op">{{ op }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Value"/>
+        </mat-form-field>
+        <button mat-flat-button color="primary">Search</button>
+        <button mat-flat-button color="primary">Reset</button>
+    </div>
+<!-- </div> -->
 <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="ID">
         <mat-header-cell *matHeaderCellDef>

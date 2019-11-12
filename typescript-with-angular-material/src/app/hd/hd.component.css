@@ -1,3 +1,19 @@
 mat-header mat-cell {
     justify-content: center
 }
+
+.controls {
+    text-align: right;
+}
+
+input {
+    margin: 0 5px 0 5px;
+}
+
+select {
+    margin: 0 5px 0 5px;
+}
+
+button {
+    margin: 0 5px 0 5px;
+}

@@ -1,9 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder } from "@angular/forms";
+import { MatTableDataSource } from "@angular/material/table";
+
+import { AstroService } from "../astro.service";
+
+import { IDisplaysDataTable } from "../model/DisplaysColumns";
 import { IQuery } from "../model/Query";
 import { HD } from "./hd";
-import { AstroService } from "../astro.service";
-import { MatTableDataSource } from "@angular/material/table";
+
+
 
 @Component({
   selector: "app-hd",
@@ -11,7 +16,7 @@ import { MatTableDataSource } from "@angular/material/table";
   styleUrls: ["./hd.component.css"],
   providers: [AstroService]
 })
-export class HdComponent implements OnInit {
+export class HdComponent implements OnInit, IDisplaysDataTable<HD> {
 
   queryForm: FormGroup;
 
@@ -32,6 +37,10 @@ export class HdComponent implements OnInit {
   dataSource: MatTableDataSource<HD>;
 
   displayColumns: string[] = ["ID", "Ptm", "Ptg", "Intensity", "SpectralType", "Rem"];
+
+  queryableFields: any[] = ["ID"];
+
+  allowedOperations: string[] = ["$eq", "$ne"];
 
   constructor(private astroService: AstroService, private formBuilder: FormBuilder) {
     this.formBuilder.group(this.formGroupTemplate);
