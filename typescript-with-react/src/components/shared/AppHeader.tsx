@@ -91,6 +91,7 @@ export default function AppHeader() {
                 <Divider />
                 <Link href="/hd" variant="body1" align="left" className={classes.link}>HD Catalog</Link>
                 <Link href="/ybs" variant="body1" align="left" className={classes.link}>Yale Bright Star Catalog</Link>
+                <Link href="/ngc2000" variant="body1" align="left" className={classes.link}>NGC2000 Catalog</Link>
             </Drawer>
         </div>
     );

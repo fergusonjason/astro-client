@@ -5,6 +5,7 @@ import HdComponent from "../hd/HdComponent";
 import YaleComponent from "../yale/YaleComponent";
 
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import Ngc2000Component from "../ngc2000/Ngc2000Component";
 
 const useStyles = makeStyles((theme: Theme) => {
 
@@ -29,6 +30,7 @@ export default function AppBody() {
                 <Route exact path="/" component={HdComponent} />
                 <Route path="/hd" component={HdComponent} />
                 <Route path="/ybs" component={YaleComponent} />
+                <Route path="/ngc2000" component={Ngc2000Component} />
             </Switch>
         </div>
 
