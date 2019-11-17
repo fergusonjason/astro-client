@@ -1,0 +1,7 @@
+{
+    "server": {
+        "apiVersion":"v1",
+        "host": "localhost",
+        "port": 3000
+    }
+}

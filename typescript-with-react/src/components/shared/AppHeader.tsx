@@ -7,14 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import Link from "@material-ui/core/Link"
 
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { ButtonBaseProps } from "@material-ui/core/ButtonBase";
-import { ListItemText } from "@material-ui/core";
 
 const drawerWidth = 250;
 
