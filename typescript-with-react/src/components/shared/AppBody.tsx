@@ -6,6 +6,7 @@ import YaleComponent from "../yale/YaleComponent";
 
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Ngc2000Component from "../ngc2000/Ngc2000Component";
+import GlieseComponent from "../gliese/GlieseComponent";
 
 const useStyles = makeStyles((theme: Theme) => {
 
@@ -31,6 +32,7 @@ export default function AppBody() {
                 <Route path="/hd" component={HdComponent} />
                 <Route path="/ybs" component={YaleComponent} />
                 <Route path="/ngc2000" component={Ngc2000Component} />
+                <Route path="/gliese" component={GlieseComponent} />
             </Switch>
         </div>
 
