@@ -90,7 +90,7 @@ export default function AppHeader() {
                 <Typography variant="h5" className={classes.paddedElement}>Catalogs</Typography>
                 <Divider />
                 <Link href="/hd" variant="body1" align="left" className={classes.link}>HD Catalog</Link>
-                <Link href="/ybs" variant="body1">Yale Bright Star Catalog</Link>
+                <Link href="/ybs" variant="body1" align="left" className={classes.link}>Yale Bright Star Catalog</Link>
             </Drawer>
         </div>
     );
