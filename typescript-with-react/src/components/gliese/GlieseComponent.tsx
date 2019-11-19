@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -27,16 +27,18 @@ function GlieseComponent() {
     const apiVersion: string = "v1";
 
     const [state, setState] = React.useState({
-        displayedItems: []
+        displayedItems: [],
+        start: 0,
+        stop: 20
       });
 
-            // TODO: Use a singleton AstroService across all components
+      // TODO: Use a singleton service across all components
     const astroService = new AstroService<GlieseModel>(`http://${host}:${port}/${apiVersion}`);
 
     useEffect(() => {
 
         const fetchData = async () => {
-            astroService.getPage("gliese", 0, 20)
+            astroService.getPage("gliese2", state.start, state.stop)
             .then((response) => {
                 setState({...state, displayedItems: response.result});
             });
@@ -54,30 +56,36 @@ function GlieseComponent() {
                 <TableHead>
                     <TableRow>
                         <TableCell align="center">Name</TableCell>
+                        <TableCell align="center">Comp</TableCell>
                         <TableCell align="center">Proper Motion</TableCell>
                         <TableCell align="center">Proper Motion Angle</TableCell>
                         <TableCell align="center">Radial Velocity</TableCell>
-                        <TableCell align="center">BV</TableCell>
                         <TableCell align="center">Parallax</TableCell>
                         <TableCell align="center">Spectral Type</TableCell>
                         <TableCell align="center">Visual Magnitude</TableCell>
+                        <TableCell align="center">Absolute Magnitude</TableCell>
+                        <TableCell align="center">BV Color</TableCell>
+                        <TableCell align="center">UB Color</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                {
-                    state.displayedItems.map((item: GlieseModel) => (
-                        <TableRow key={item.Name}>
-                            <TableCell align="center">{item.Name}</TableCell>
-                            <TableCell align="center">{item.pm}</TableCell>
-                            <TableCell align="center">{item.pmPA}</TableCell>
-                            <TableCell align="center">{item.RadialVelocity}</TableCell>
-                            <TableCell align="center">{item.BV}</TableCell>
-                            <TableCell align="center">{item.plx}</TableCell>
-                            <TableCell align="center">{item.SpectralType}</TableCell>
-                            <TableCell align="center">{item.VisualMagnitude}</TableCell>
-                        </TableRow>
-                    ))
-                }
+                    {
+                        state.displayedItems.map((item: GlieseModel) => (
+                            <TableRow key={item.VisierID}>
+                                <TableCell align="center">{item.Name}</TableCell>
+                                <TableCell align="center">{item.Comp}</TableCell>
+                                <TableCell align="center">{item.ProperMotion}</TableCell>
+                                <TableCell align="center">{item.ProperMotionAngle}</TableCell>
+                                <TableCell align="center">{item.RadialVelocity}</TableCell>
+                                <TableCell align="center">{item.Parallax}</TableCell>
+                                <TableCell align="center">{item.SpectralType}</TableCell>
+                                <TableCell align="center">{item.VisualMagnitude}</TableCell>
+                                <TableCell align="center">{item.AbsoluteMagnitude}</TableCell>
+                                <TableCell align="center">{item.BV}</TableCell>
+                                <TableCell align="center">{item.UB}</TableCell>
+                            </TableRow>
+                        ))
+                    }
                 </TableBody>
             </Table>
         </div>
